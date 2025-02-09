@@ -82,41 +82,82 @@ const Login: React.FC = () => {
           noValidate
           sx={{ width: "100%", maxWidth: 360 }}
         >
+          <Typography
+            sx={{
+              color: "#fff",
+              fontWeight: "bold",
+              mb: 0.5,
+              fontSize: "16px",
+            }}
+          >
+            E-mail:
+          </Typography>
           <TextField
             margin="normal"
             required
             fullWidth
             id="email"
-            label="E-mail"
             name="email"
             autoComplete="email"
             autoFocus
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="Digite seu e-mail"
             sx={{
-              input: { color: "#fff" },
-              "& label": { color: "#ddd" },
+              input: {
+                color: "#fff",
+                background: "linear-gradient(90deg, #09352D, #136B5A)",
+                borderRadius: "20px",
+                padding: "10px",
+                "&::placeholder": {
+                  color: "#bbb",
+                  transform: "translateY(-3px)",
+                  fontSize: "14px",
+                },
+              },
               "& .MuiOutlinedInput-root": {
+                borderRadius: "20px",
                 "& fieldset": { borderColor: "#ddd" },
                 "&:hover fieldset": { borderColor: "#fff" },
               },
             }}
           />
+          <Typography
+            sx={{
+              color: "#fff",
+              fontWeight: "bold",
+              mt: 1.5,
+              mb: 0.5,
+              fontSize: "16px",
+            }}
+          >
+            Senha:
+          </Typography>
           <TextField
             margin="normal"
             required
             fullWidth
             name="senha"
-            label="Senha"
             type="password"
             id="senha"
             autoComplete="current-password"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
+            placeholder="Digite sua senha"
             sx={{
-              input: { color: "#fff" },
-              "& label": { color: "#ddd" },
+              input: {
+                color: "#fff",
+                background: "linear-gradient(90deg, #09352D, #136B5A)",
+                borderRadius: "20px",
+                padding: "10px",
+                "&::placeholder": {
+                  color: "#bbb",
+                  transform: "translateY(-3px)",
+                  fontSize: "14px",
+                },
+              },
               "& .MuiOutlinedInput-root": {
+                borderRadius: "20px",
                 "& fieldset": { borderColor: "#ddd" },
                 "&:hover fieldset": { borderColor: "#fff" },
               },
@@ -129,8 +170,18 @@ const Login: React.FC = () => {
             sx={{
               mt: 3,
               mb: 2,
-              backgroundColor: "#00bfa5",
-              "&:hover": { backgroundColor: "#008c7a" },
+              padding: "12px 0",
+              fontSize: "16px",
+              fontWeight: "bold",
+              borderRadius: "25px",
+              background: "linear-gradient(90deg, #00bfa5, #00796b)",
+              color: "#fff",
+              textTransform: "none",
+              boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+              "&:hover": {
+                background: "linear-gradient(90deg, #00796b, #004d40)",
+                boxShadow: "0px 6px 8px rgba(0, 0, 0, 0.2)",
+              },
             }}
             disabled={isLoading}
           >
@@ -156,13 +207,25 @@ const Login: React.FC = () => {
         </Box>
       </Box>
 
-      {/* Seção da direita - Imagem */}
+      {/* Seção da direita - Imagem com gradiente de transição */}
       <Box
         sx={{
           width: "60%",
           backgroundImage: `url(${loginImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          position: "relative",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "linear-gradient(to right, #111 10%, transparent 100%)", // Ajuste do gradiente
+            zIndex: 1,
+          },
+          zIndex: 0,
         }}
       ></Box>
     </Box>
